@@ -14,31 +14,31 @@ namespace WebApplication2.Controllers
             return View();
         }
         // GET: Rejestracja
-     /*   public ActionResult Rejestracja(AspNetUser user)
+        public ActionResult Rejestracja(Table user)
         {
             //return View();
             if (ModelState.IsValid)
             {
                 //List<AspNetUsers> userDod = new List<AspNetUsers>();
                 //  userDod.Insert(new AspNetUsers {Name = use.Imie, Nazwisko = model.Nazwisko, Miasto = model.Miasto, KodPocztowy = model.KodPocztowy, Adres = model.Adres, Email = model.Email, Telefon = model.Telefon });
-                Entities2 db = new Entities2();
-                if (db.AspNetUsers.Any())
+                db4e37397b7458442a8c4ea6b801845440Entities1 db = new db4e37397b7458442a8c4ea6b801845440Entities1();
+                if (db.Table.Any())
                 {
-                    int id = db.AspNetUsers.OrderByDescending(p => p.Id).Select(p => p.Id).First();
+                    int id = db.Table.OrderByDescending(p => p.IdUzytkownika).Select(p => p.IdUzytkownika).First();
                         //user.Id = userr + 1;
                         //var update = dc.UserProfile.First(d => d.UserName == User.Identity.Name);
                         //var upadte = db.AspNetUserss.First(d => d.Email == "test");
                         //   var update2 = db.AspNetUsers.First(d => d.Confirm == 0);
                         //     update2.Email = "test2";
-                        user.Id = id + 1;
+                        user.IdUzytkownika = id + 1;
                 }
                 else
-                    user.Id = 1;
-                db.AspNetUsers.Add(user);
+                    user.IdUzytkownika = 1;
+                db.Table.Add(user);
                 db.SaveChanges();
             }
-            ViewBag.Message = user.Name + "  " + user.Surname + " zarejestrowano poprawnie";
+            ViewBag.Message = user.Imie + "  " + user.Nazwisko + " zarejestrowano poprawnie";
             return View();
-        }  */
+        }  
     }
 }

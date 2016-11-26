@@ -22,7 +22,7 @@ namespace WebApplication2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("db4e37397b7458442a8c4ea6b801845440Entities1", throwIfV1Schema: false)
         {
         }
 
