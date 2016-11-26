@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
             return View("Rejestracja");
         }
         // GET: Rejestracja
-        public ActionResult Rejestracja(AspNetUser user)
+     /*   public ActionResult Rejestracja(AspNetUser user)
         {
             //return View();
             if (ModelState.IsValid)
@@ -39,6 +39,6 @@ namespace WebApplication2.Controllers
             }
             ViewBag.Message = user.Name + "  " + user.Surname + " zarejestrowano poprawnie";
             return View();
-        } 
+        }  */
     }
 }
