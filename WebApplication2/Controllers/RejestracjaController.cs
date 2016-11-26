@@ -11,7 +11,7 @@ namespace WebApplication2.Controllers
     {
         public ActionResult Index()
         {
-            return View("Rejestracja");
+            return View();
         }
         // GET: Rejestracja
      /*   public ActionResult Rejestracja(AspNetUser user)
