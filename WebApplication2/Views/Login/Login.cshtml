@@ -1,0 +1,38 @@
+﻿@model WebApplication2.Models.LogowanieModels
+
+@{
+    ViewBag.Title = "Logowanie";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <ol>
+            <li>
+                @Html.Label("Login")
+                @Html.TextBoxFor(m => m.Login)
+            </li>
+            <li>
+                @Html.Label("Haslo")
+                @Html.PasswordFor(m => m.Haslo)
+            </li>
+        </ol>
+        <input type="submit" value="Zaloguj" />
+    </fieldset>
+}
+@if (TempData["login"] != null)
+{
+    <p style="color:#8B0000">@TempData["login"]</p>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

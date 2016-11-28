@@ -8,26 +8,27 @@ namespace WebApplication2.Models
 {
     public class RejestracjaModel
     {
-        public class Koszyk
-        {
+            public int IdUzytkownika { get; set; }
             [Required]
-            public string Email { get; set; }
+            public string Imie { get; set; }
             [Required]
-            public string Name { get; set; }
+            public string Nazwisko { get; set; }
+            public Nullable<System.DateTime> Data_Urodzenia { get; set; }
             [Required]
-            public string Surname { get; set; }
+            public string Pesel { get; set; }
             [Required]
-            public int Pesel { get; set; }
+            public string Dzial { get; set; }
             [Required]
-            public string Department { get; set; }
+            public Nullable<double> WyplataBrutto { get; set; }
+            public Nullable<int> Uprawnienia { get; set; }
             [Required]
-            public string PasswordHash { get; set; }
+            public string Haslo { get; set; }
             [Required]
-            public int PhoneNumber { get; set; }
+            [Compare("Haslo", ErrorMessage = "The password and confirmation password do not match.")]
+            public string PotwierdzHaslo { get; set; }
+            public Nullable<int> benefit { get; set; }
+            public Nullable<int> potwierdzenie { get; set; }
             [Required]
-            public System.DateTime BirthDate { get; set; }
-            [Required]
-            public string UserName { get; set; }
-        }
+            public string login { get; set; }
     }
 }
