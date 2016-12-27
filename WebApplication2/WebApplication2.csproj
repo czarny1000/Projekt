@@ -194,6 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EdycjaAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -302,6 +303,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Rejestracja\Rejestracja.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\EdycjaAdmin\Create.cshtml" />
+    <Content Include="Views\EdycjaAdmin\Delete.cshtml" />
+    <Content Include="Views\EdycjaAdmin\Details.cshtml" />
+    <Content Include="Views\EdycjaAdmin\Edit.cshtml" />
+    <Content Include="Views\EdycjaAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

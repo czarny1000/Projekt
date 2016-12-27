@@ -1,0 +1,114 @@
+﻿@model WebApplication2.Table
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Table</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Imie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Imie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nazwisko)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Data_Urodzenia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Data_Urodzenia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pesel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pesel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Dzial)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Dzial)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.WyplataBrutto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.WyplataBrutto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Uprawnienia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Uprawnienia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Haslo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Haslo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.benefit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.benefit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.potwierdzenie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.potwierdzenie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.login)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.login)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdUzytkownika }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
