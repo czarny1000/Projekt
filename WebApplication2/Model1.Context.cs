@@ -26,5 +26,6 @@ namespace WebApplication2
         }
     
         public virtual DbSet<Table> Table { get; set; }
+        public virtual DbSet<Wyplata> Wyplata { get; set; }
     }
 }

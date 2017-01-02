@@ -14,6 +14,12 @@ namespace WebApplication2
     
     public partial class Table
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Table()
+        {
+            this.Wyplata = new HashSet<Wyplata>();
+        }
+    
         public int IdUzytkownika { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
@@ -23,8 +29,11 @@ namespace WebApplication2
         public Nullable<double> WyplataBrutto { get; set; }
         public Nullable<int> Uprawnienia { get; set; }
         public string Haslo { get; set; }
-        public Nullable<int> benefit { get; set; }
+        public Nullable<double> benefit { get; set; }
         public Nullable<int> potwierdzenie { get; set; }
         public string login { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wyplata> Wyplata { get; set; }
     }
 }

@@ -95,10 +95,15 @@
                 @Html.ActionLink("Edit", "Edit", new { id=item.IdUzytkownika }) |
                 @Html.ActionLink("Details", "Details", new { id=item.IdUzytkownika }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.IdUzytkownika })
+                @Html.ActionLink("Wyplata", "Index","DodajWyplate", new { id = item.IdUzytkownika },null)
             </td>
         </tr>
     }
     
     </table>
+    @if (TempData["Wyplata"] != null)
+    {
+        <p style="color:#8B0000">@TempData["Wyplata"]</p>
+    }
 </body>
 </html>

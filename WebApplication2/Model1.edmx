@@ -18,17 +18,56 @@
           <Property Name="WyplataBrutto" Type="float" />
           <Property Name="Uprawnienia" Type="int" />
           <Property Name="Haslo" Type="nchar" MaxLength="50" />
-          <Property Name="benefit" Type="int" />
+          <Property Name="benefit" Type="float" />
           <Property Name="potwierdzenie" Type="int" />
           <Property Name="login" Type="nchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Wyplata">
+          <Key>
+            <PropertyRef Name="IdWyplata" />
+          </Key>
+          <Property Name="IdWyplata" Type="int" Nullable="false" />
+          <Property Name="Zus" Type="float" />
+          <Property Name="Dochodowy" Type="float" />
+          <Property Name="Data" Type="date" />
+          <Property Name="PlacaNetto" Type="float" />
+          <Property Name="IdPracownika" Type="int" />
+          <Property Name="Emerytalna" Type="float" />
+          <Property Name="rentowa" Type="float" />
+          <Property Name="chorobowa" Type="float" />
+        </EntityType>
+        <Association Name="FK_Wyplata_ToTable">
+          <End Role="Table" Type="Self.Table" Multiplicity="0..1" />
+          <End Role="Wyplata" Type="Self.Wyplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="IdUzytkownika" />
+            </Principal>
+            <Dependent Role="Wyplata">
+              <PropertyRef Name="IdPracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Entities3StoreContainer">
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wyplata" EntityType="Self.Wyplata" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Wyplata_ToTable" Association="Self.FK_Wyplata_ToTable">
+            <End Role="Table" EntitySet="Table" />
+            <End Role="Wyplata" EntitySet="Wyplata" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Entities3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db4e37397b7458442a8c4ea6b801845440Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Table" EntityType="Entities3.Table" />
+          <EntitySet Name="Wyplata" EntityType="Entities3.Wyplata" />
+          <AssociationSet Name="FK_Wyplata_ToTable" Association="Entities3.FK_Wyplata_ToTable">
+            <End Role="Table" EntitySet="Table" />
+            <End Role="Wyplata" EntitySet="Wyplata" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Table">
           <Key>
             <PropertyRef Name="IdUzytkownika" />
@@ -42,13 +81,38 @@
           <Property Name="WyplataBrutto" Type="Double" />
           <Property Name="Uprawnienia" Type="Int32" />
           <Property Name="Haslo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="benefit" Type="Int32" />
+          <Property Name="benefit" Type="Double" />
           <Property Name="potwierdzenie" Type="Int32" />
           <Property Name="login" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Wyplata" Relationship="Entities3.FK_Wyplata_ToTable" FromRole="Table" ToRole="Wyplata" />
         </EntityType>
-        <EntityContainer Name="db4e37397b7458442a8c4ea6b801845440Entities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Table" EntityType="Self.Table" />
-        </EntityContainer>
+        <EntityType Name="Wyplata">
+          <Key>
+            <PropertyRef Name="IdWyplata" />
+          </Key>
+          <Property Name="IdWyplata" Type="Int32" Nullable="false" />
+          <Property Name="Zus" Type="Double" />
+          <Property Name="Dochodowy" Type="Double" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="PlacaNetto" Type="Double" />
+          <Property Name="IdPracownika" Type="Int32" />
+          <NavigationProperty Name="Table" Relationship="Entities3.FK_Wyplata_ToTable" FromRole="Wyplata" ToRole="Table" />
+          <Property Name="Emerytalna" Type="Double" />
+          <Property Name="rentowa" Type="Double" />
+          <Property Name="chorobowa" Type="Double" />
+        </EntityType>
+        <Association Name="FK_Wyplata_ToTable">
+          <End Type="Entities3.Table" Role="Table" Multiplicity="0..1" />
+          <End Type="Entities3.Wyplata" Role="Wyplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table">
+              <PropertyRef Name="IdUzytkownika" />
+            </Principal>
+            <Dependent Role="Wyplata">
+              <PropertyRef Name="IdPracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -58,18 +122,33 @@
           <EntitySetMapping Name="Table">
             <EntityTypeMapping TypeName="Entities3.Table">
               <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
-                <ScalarProperty Name="Imie" ColumnName="Imie" />
-                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-                <ScalarProperty Name="Data_Urodzenia" ColumnName="Data_Urodzenia" />
-                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
-                <ScalarProperty Name="Dzial" ColumnName="Dzial" />
-                <ScalarProperty Name="WyplataBrutto" ColumnName="WyplataBrutto" />
-                <ScalarProperty Name="Uprawnienia" ColumnName="Uprawnienia" />
-                <ScalarProperty Name="Haslo" ColumnName="Haslo" />
-                <ScalarProperty Name="benefit" ColumnName="benefit" />
-                <ScalarProperty Name="potwierdzenie" ColumnName="potwierdzenie" />
                 <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="potwierdzenie" ColumnName="potwierdzenie" />
+                <ScalarProperty Name="benefit" ColumnName="benefit" />
+                <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+                <ScalarProperty Name="Uprawnienia" ColumnName="Uprawnienia" />
+                <ScalarProperty Name="WyplataBrutto" ColumnName="WyplataBrutto" />
+                <ScalarProperty Name="Dzial" ColumnName="Dzial" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Data_Urodzenia" ColumnName="Data_Urodzenia" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wyplata">
+            <EntityTypeMapping TypeName="Entities3.Wyplata">
+              <MappingFragment StoreEntitySet="Wyplata">
+                <ScalarProperty Name="chorobowa" ColumnName="chorobowa" />
+                <ScalarProperty Name="rentowa" ColumnName="rentowa" />
+                <ScalarProperty Name="Emerytalna" ColumnName="Emerytalna" />
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+                <ScalarProperty Name="PlacaNetto" ColumnName="PlacaNetto" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Dochodowy" ColumnName="Dochodowy" />
+                <ScalarProperty Name="Zus" ColumnName="Zus" />
+                <ScalarProperty Name="IdWyplata" ColumnName="IdWyplata" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
