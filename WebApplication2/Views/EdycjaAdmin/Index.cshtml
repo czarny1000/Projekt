@@ -96,6 +96,7 @@
                 @Html.ActionLink("Details", "Details", new { id=item.IdUzytkownika }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.IdUzytkownika })
                 @Html.ActionLink("Wyplata", "Index","DodajWyplate", new { id = item.IdUzytkownika },null)
+                @Html.ActionLink("Pokaz Wyplate", "Index", "Wyplatas", new { id = item.IdUzytkownika }, null)
             </td>
         </tr>
     }

@@ -200,6 +200,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RejestracjaController.cs" />
+    <Compile Include="Controllers\WyplatasController.cs" />
+    <Compile Include="Controllers\WyswietlWyplateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,6 +314,16 @@
     <Content Include="Views\EdycjaAdmin\Details.cshtml" />
     <Content Include="Views\EdycjaAdmin\Edit.cshtml" />
     <Content Include="Views\EdycjaAdmin\Index.cshtml" />
+    <Content Include="Views\Wyplatas\Create.cshtml" />
+    <Content Include="Views\Wyplatas\Delete.cshtml" />
+    <Content Include="Views\Wyplatas\Details.cshtml" />
+    <Content Include="Views\Wyplatas\Edit.cshtml" />
+    <Content Include="Views\Wyplatas\Index.cshtml" />
+    <Content Include="Views\WyswietlWyplate\Create.cshtml" />
+    <Content Include="Views\WyswietlWyplate\Delete.cshtml" />
+    <Content Include="Views\WyswietlWyplate\Details.cshtml" />
+    <Content Include="Views\WyswietlWyplate\Edit.cshtml" />
+    <Content Include="Views\WyswietlWyplate\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

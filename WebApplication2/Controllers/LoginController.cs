@@ -29,6 +29,7 @@ namespace WebApplication2.Controllers
                     uzytkownik.Insert(licznik, new UzytkownikModels {Id = id2, uprawnienia = uprawnienia2 });
                     Session["Login"] = user.Login;
                     Session["Uprawnienia"] = uzytkownik;
+                    Session["Uprawnienia2"] = uprawnienia2;
                     //TempData["login"] = "Zalogowano Poprawnie";
                 }
                 catch
@@ -44,6 +45,7 @@ namespace WebApplication2.Controllers
         {
             Session["Login"] = null;
             Session["Uprawnienia"] = null;
+            Session["Uprawnienia2"] = null;
             return View("../Home/Index");
         }
     }

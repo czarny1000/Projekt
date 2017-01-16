@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebApplication2.Wyplata>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Zus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dochodowy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlacaNetto)
+        </th>
+        <th>
+            Wyplata Brutto
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emerytalna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rentowa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chorobowa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table.Imie)
+        </th>
+        <th>
+           Nazwisko
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dochodowy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlacaNetto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table.WyplataBrutto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emerytalna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rentowa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.chorobowa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table.Imie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table.Nazwisko)
+        </td>
+    </tr>
+}
+
+</table>
