@@ -1,0 +1,29 @@
+CREATE TABLE [dbo].[Table] (
+    [IdUzytkownika]  INT        NOT NULL,
+    [Imie]           NCHAR (50) NULL,
+    [Nazwisko]       NCHAR (10) NULL,
+    [Data_Urodzenia] DATE       NULL,
+    [Pesel]          NCHAR (50) NULL,
+    [Dzial]          NCHAR (10) NULL,
+    [WyplataBrutto]  FLOAT (53) NULL,
+    [Uprawnienia]    INT        DEFAULT ((1)) NULL,
+    [Haslo]          NCHAR (50) NULL,
+    [benefit]        FLOAT (53) DEFAULT ((0)) NULL,
+    [potwierdzenie]  INT        DEFAULT ((0)) NULL,
+    [login]          NCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([IdUzytkownika] ASC)
+);
+
+CREATE TABLE [dbo].[Wyplata] (
+    [IdWyplata]    INT        NOT NULL,
+    [Zus]          FLOAT (53) NULL,
+    [Dochodowy]    FLOAT (53) NULL,
+    [Data]         DATE       NULL,
+    [PlacaNetto]   FLOAT (53) NULL,
+    [IdPracownika] INT        NULL,
+    [Emerytalna]   FLOAT (53) NULL,
+    [rentowa]      FLOAT (53) NULL,
+    [chorobowa]    FLOAT (53) NULL,
+    PRIMARY KEY CLUSTERED ([IdWyplata] ASC),
+    CONSTRAINT [FK_Wyplata_ToTable] FOREIGN KEY ([IdPracownika]) REFERENCES [dbo].[Table] ([IdUzytkownika])
+);
